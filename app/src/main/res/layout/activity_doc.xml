@@ -77,9 +77,117 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Confirm Appoinment"
+
+       android:textAlignment="center"
+        android:layout_height="wrap_content" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2">
+<TextView
+    android:layout_width="match_parent"
+    android:text="Name:"
+    android:layout_weight="1"
+    android:layout_height="wrap_content" />
+<EditText
+    android:layout_weight="1"
+    android:inputType="textCapSentences"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Phone:"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_weight="1"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+
+        android:layout_height="5dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Gender:"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_weight="1"
+            android:id="@+id/radioSex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+
+                android:id="@+id/radioMale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="male"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="female" />
+
+            <RadioButton
+                android:id="@+id/radioboth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="unspecified" />
+        </RadioGroup>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Select date "
+        android:textColor="@color/colorblue"
+        android:clickable="true"
+        />
+</LinearLayout>
+
+    </LinearLayout>
+
+
     <Button
+        android:layout_gravity="bottom"
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGIN" />
+        android:text="confirm" />
+
+
 </LinearLayout>

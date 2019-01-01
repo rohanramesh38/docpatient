@@ -32,7 +32,6 @@ public class profile {
         return nam;
     }
 
-
     public void setNam(String nam) {
         this.nam = nam;
     }
@@ -43,7 +42,6 @@ public class profile {
     public void setDes(String des) {
         this.des = des;
     }
-
 
     public String getEmail() {
         return email;

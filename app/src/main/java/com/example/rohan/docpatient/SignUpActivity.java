@@ -19,17 +19,21 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Patient");
     //    public static String USER_ID;
     private Button buttonRegister;
     private TextView textView;
     private EditText editTextEmail,editTextPassword;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+private  String pemail;
+    private  String pname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         final String mail=editTextEmail.getText().toString().trim();
         String pwd=editTextPassword.getText().toString().trim();
 
+
+
         if(TextUtils.isEmpty(mail))
         {
             Toast.makeText(this,"please enter a mail id",Toast.LENGTH_SHORT).show();
@@ -77,7 +83,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
 
 
-
+        int in=mail.indexOf('@');
+pemail=mail.replace(".com","");
+pemail=pemail.replace(".","_");
+pname=mail.substring(0,in);
 
         progressDialog.setMessage("signing up...");
 
@@ -91,11 +100,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 if(task.isSuccessful())
 
                 {
-                    startActivity(new Intent(SignUpActivity.this,MainActivity.class));
-
-
+                   patient user = new patient(pname,mail, "DefaultProfilepic", " defaultDescription ", " defaultNam","1234567890");
+                    myRef.child(pemail).setValue(user);
 
                     finish();
+                    startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+
 
                 }
                 else
@@ -122,6 +132,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if(v==textView)
         {
             //    signinUser();
+
+            finish();
             startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
 
         }
